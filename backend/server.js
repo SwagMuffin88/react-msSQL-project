@@ -20,4 +20,12 @@ const startServer = async () => {
     }
 };
 
+// Test endpoint
+app.get('/api/test', (req, res) => {
+    res.json({
+        message: "Hello world! Backend is working!",
+        timestamp: new Date().toISOString()
+    });
+});
+
 startServer();
