@@ -20,6 +20,19 @@ const startServer = async () => {
     }
 };
 
+const itemController = require('./src/controllers/itemController');
+
+// API otspunktid
+app.get('/api/items', itemController.getAllItems);
+
+app.get('/api/items/:id', itemController.getItemById);
+
+app.post('/api/items', itemController.createItem);
+
+app.put('/api/items/:id', itemController.updateItem);
+
+app.delete('/api/items/:id', itemController.deleteItem);
+
 // Test endpoint
 app.get('/api/test', (req, res) => {
     res.json({
