@@ -72,61 +72,69 @@ const Home = () => {
 
     return (
         <div className="items-container">
-            <h2 className="title">Andmebaasi haldur</h2>
+            <header className="title-section">
+                <h2>Andmebaasi haldus</h2>
+            </header>
 
-            <form onSubmit={addItem} className="add-form">
-                <input
-                    className="input-field"
-                    type="text"
-                    value={newContent}
-                    onChange={(e) => setNewContent(e.target.value)}
-                    placeholder="Lisa uus kirje..."
-                    required
-                />
-                <button type="submit" className="btn btn-add">Lisa</button>
-            </form>
+            <section>
+                <form onSubmit={addItem} className="add-form">
+                    <input
+                        className="input-field"
+                        type="text"
+                        value={newContent}
+                        onChange={(e) => setNewContent(e.target.value)}
+                        placeholder="Kirjuta siia midagi uut..."
+                        required
+                    />
+                    <button type="submit" className="btn btn-add">Lisa kirje</button>
+                </form>
+            </section>
 
-            <ul className="items-list">
-                {items.map(item => (
-                    <li key={item.Id} className="item-row">
-                        {editingItem === item.Id ? (
-                            <div className="edit-container">
-                                <input
+            <main>
+                <ul className="items-list">
+                    {items.map(item => (
+                        <li key={item.Id} className="item-card">
+                            {editingItem === item.Id ? (
+                                <div className="edit-mode">
+                                <textarea
                                     className="input-field"
+                                    style={{width: '100%', marginBottom: '10px', minHeight: '80px'}}
                                     value={editContent}
-                                    onChange={(e) =>
-                                        setEditContent(e.target.value)}
+                                    onChange={(e) => setEditContent(e.target.value)}
                                 />
+                                    <div className="button-group">
+                                        <button className="btn btn-save" onClick={() => updateItem(item.Id)}>
+                                            Salvesta
+                                        </button>
 
-                                <button className="btn btn-save" onClick={() => updateItem(item.Id)}>
-                                    Salvesta
-                                </button>
-
-                                <button className="btn btn-cancel" onClick={() => setEditingItem(null)}>
-                                    Tühista
-                                </button>
-                            </div>
-                        ) : (
-                            <>
-                                <span className="item-content">{item.Content}</span>
-
-                                <div className="button-group">
-                                    <button className="btn btn-edit" onClick={() => {
-                                        setEditingItem(item.Id);
-                                        setEditContent(item.Content);
-                                    }}>
-                                        Muuda
-                                    </button>
-
-                                    <button className="btn btn-delete" onClick={() => deleteItem(item.Id)}>
-                                        Kustuta
-                                    </button>
+                                        <button className="btn btn-cancel" onClick={() => setEditingItem(null)}>
+                                            Tühista
+                                        </button>
+                                    </div>
                                 </div>
-                            </>
-                        )}
-                    </li>
-                ))}
-            </ul>
+                            ) : (
+                                <>
+                                    <span className="item-id">ID: {item.Id}</span>
+                                    <p className="item-content">{item.Content}</p>
+
+                                    <div className="button-group">
+                                        <button className="btn btn-edit" onClick={() => {
+                                            setEditingItem(item.Id);
+                                            setEditContent(item.Content);
+                                        }}>
+                                            Muuda
+                                        </button>
+
+                                        <button className="btn btn-delete" onClick={() => deleteItem(item.Id)}>
+                                            Kustuta
+                                        </button>
+                                    </div>
+                                </>
+                            )}
+                        </li>
+                    ))}
+                </ul>
+            </main>
         </div>
     );
 };
