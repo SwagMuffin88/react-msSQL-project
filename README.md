@@ -10,6 +10,11 @@ Veendu, et sinu arvutis on:
 
 2. MS SQL Server (kas lokaalselt või Dockeris)
 
+Alustamiseks klooni projekt:
+```
+git clone https://github.com/SwagMuffin88/react-msSQL-project.git
+```
+
 Andmebaasi seadistamiseks on kaks valikut sõltuvalt sellest, kas kasutad Dockerit või lokaalset SQL Serverit:
 
 ### Lokaalne MS SQL server:
