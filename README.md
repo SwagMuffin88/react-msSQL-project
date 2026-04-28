@@ -59,4 +59,5 @@ cd ..
 cd frontend
 npm install
 ```
-Seejärel: ```npm start```
+Seejärel: ```npm run start```.
+Kasutajaliides on nüüd kättesaadav aadressil http://localhost:5173 ja kuulab API aadressit http://localhost:5000.
