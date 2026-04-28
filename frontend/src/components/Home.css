@@ -1,0 +1,82 @@
+.items-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.title {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Vormi stiilid */
+.add-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.input-field {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.items-list {
+    list-style: none;
+    padding: 0;
+}
+
+.item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    transition: transform 0.2s;
+}
+
+.item-row:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.item-content {
+    font-size: 16px;
+    color: #444;
+}
+
+.btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: opacity 0.2s;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.btn-add { background-color: #28a745; color: white; }
+.btn-edit { background-color: #007bff; color: white; margin-right: 5px; }
+.btn-delete { background-color: #dc3545; color: white; }
+.btn-save { background-color: #28a745; color: white; margin-right: 5px; }
+.btn-cancel { background-color: #6c757d; color: white; }
+
+.edit-container {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
