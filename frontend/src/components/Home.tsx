@@ -37,18 +37,20 @@ const Home = () => {
             const response = await axios.post(API_URL, { content: newContent })
             setItems([response.data, ...items])
             setNewContent('')
+            alert("Kirje edukalt lisatud!")
         } catch (error) {
-            alert(error)
+            console.log(error)
+            alert("Lisamine ebaõnnestus")
         }
     }
 
     // DELETE
     const deleteItem = async (id: number) => {
-        if (!window.confirm(`Kas sa oled kindel, et soovid kirjet kustutada?`))
+        if (!window.confirm(`Kas sa oled kindel, et soovid kirjet nr ${id} kustutada?`)) return
         try {
             await axios.delete(`${API_URL}/${id}`)
             // @ts-ignore
-            setItems(items.filter(item => item.id !== id))
+            setItems(prevItems => prevItems.filter(item => item.Id !== id))
         } catch (error) {
             alert("Kustutamine ebaõnnestus")
             console.log(error)
